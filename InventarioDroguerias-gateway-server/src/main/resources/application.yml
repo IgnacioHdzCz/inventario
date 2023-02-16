@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: servicio-inventarios-droguerias
+        uri: lb://servicio-inventarios-droguerias
+        predicates:
+          - Path=/api/medicamentos/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            
